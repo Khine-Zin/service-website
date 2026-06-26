@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +9,10 @@
 
 :root {
     --topHeader: #ecf6fe;
-    --blueColor: #008aff;
-    --yellowColor: #ffe824;
+    --blueColor: #fbb207;
+    --yellowColor: #fbb207;
     --goldColor: #f7b74d;
-    --headingColor: #13287e;
+    --headingColor: #fbb207;
     --textColor: #474747;
     --whiteColor: #ffffff;
 }
@@ -70,6 +69,22 @@ h3 {
     font-weight: 400;
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;   
+    gap: 10px;             
+    text-decoration: none; 
+    color: #333;           
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.logo-container img {
+    height: 40px;          
+    width: auto;
+}
+
 p {
     font-size: 1.8rem;
     font-weight: 300;
@@ -89,7 +104,7 @@ section {
 
 .btn {
     background-color: var(--yellowColor);
-    color: var(--textColor);
+    color:#ffffff;
     text-transform: uppercase;
     font-size: 1.4rem;
     padding: 1.6rem 2rem;
@@ -249,18 +264,19 @@ header .container nav ul li a:hover {
 }
 
 .home .container .home-text {
+    width: 100%;
     text-align: center;
 }
 
 .home .container .home-text h2 {
     font-weight: 300;
-    font-size: 2.3rem;
+    font-size: 1.5rem;
     color: var(--blueColor);
 }
 
 .home .container .home-text h1 {
     color: var(--headingColor);
-    font-size: 5.8rem;
+    font-size: 4.3rem;
     margin: 3rem 0;
 }
 
@@ -283,11 +299,13 @@ header .container nav ul li a:hover {
     }
 
     .home .container .home-text h2 {
-        font-size: 3.3rem;
+        margin-top: 80px;
+        font-size: 2rem;
     }
 
     .home .container .home-text h1 {
-        font-size: 6.8rem;
+        width: 500px;
+        font-size:5rem;
     }
 }
 
@@ -1080,6 +1098,7 @@ footer .copyright {
 }
 
 footer .copyright p {
+    font-size: 15px;
     text-align: center;
 }
 

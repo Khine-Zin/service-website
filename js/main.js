@@ -1,5 +1,9 @@
 const menuBtn = document.querySelector('.menu-bar');
 const menu = document.querySelector('nav');
+const modal = document.getElementById('blog-modal');
+const closeBtn = document.getElementById('close-modal');
+const modalTitle = modal.querySelector('h3');
+const modalText = modal.querySelector('p');
 
 menuBtn.addEventListener('click', () => {
     menu.classList.toggle('active');
@@ -76,5 +80,53 @@ window.addEventListener('scroll', () => {
     navLi.forEach(li => {
         li.classList.remove('active');
         document.querySelector('nav ul li a[href*=' + current + ']').classList.add('active');
+    });
+});
+document.querySelectorAll('.news .new-text a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.style.display = 'flex'; // Show modal
+    });
+});
+
+// Close modal when button is clicked
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('blog-modal');
+    const closeBtn = document.getElementById('close-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalText = document.getElementById('modal-text');
+
+    document.querySelectorAll('.news-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // ၁။ အချက်အလက်ယူမယ်
+            const parent = this.closest('.new-text');
+            const title = parent.querySelector('h3').innerText;
+            
+            // ၂။ data-fulltext ထဲက စာကိုယူမယ် (မရှိရင် <p> ထဲကစာကိုယူမယ်)
+            const fullText = this.getAttribute('data-fulltext') || parent.querySelector('p').innerText;
+
+            // ၃။ Modal ထဲကို အတင်းသွင်းမယ် (ဒီနေရာမှာ Static issue ပျောက်သွားပါမယ်)
+            modalTitle.innerText = title;
+            modalText.innerText = fullText;
+
+            // ၄။ ပြမယ်
+            modal.style.display = 'flex';
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
     });
 });
